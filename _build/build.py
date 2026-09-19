@@ -8,12 +8,12 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://abstill.com"
 NAME = "AB Still"
 FOOTER_COPY = f"© 6one FZE trading as {NAME}. Registered as a general and legal consultancy in the SPC Free Zone, UAE."
-NAV = [("about.html", "About"), ("contact.html", "Contact"), ("terms.html", "Terms")]
+NAV = [("what-we-do", "What we do"), ("who-we-are", "Who we are"), ("contact", "Contact"), ("terms", "Terms")]
 
 
 def head(title, desc, path):
     full = NAME if path == "index.html" else f"{title} — {NAME}"
-    url = SITE + ("/" if path == "index.html" else f"/{path}")
+    url = SITE + ("/" if path == "index.html" else "/" + path.removesuffix(".html"))
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,11 +39,11 @@ def head(title, desc, path):
 def header(current):
     cur = ' aria-current="page"'
     links = "\n".join(
-        f'      <a href="{h}"{cur if h == current else ""}>{t}</a>' for h, t in NAV
+        f'      <a href="/{h}"{cur if h == current.removesuffix(".html") else ""}>{t}</a>' for h, t in NAV
     )
     return f"""
   <header>
-    <a href="index.html" class="wordmark">{NAME}</a>
+    <a href="/" class="wordmark">{NAME}</a>
     <nav>
 {links}
     </nav>
@@ -52,7 +52,7 @@ def header(current):
 
 
 def footer():
-    links = "\n".join(f'      <a href="{h}">{t}</a>' for h, t in NAV)
+    links = "\n".join(f'      <a href="/{h}">{t}</a>' for h, t in NAV)
     return f"""
   <footer>
     <p class="footer-copy">{FOOTER_COPY}</p>
