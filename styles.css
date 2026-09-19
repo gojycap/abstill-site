@@ -79,6 +79,15 @@ main.landing { padding-top: 5rem; }
   color: var(--ink-muted); line-height: 1.65;
 }
 
+.landing-lede {
+  font-size: 1.0rem; margin-top: 3rem; margin-bottom: 0.25rem; color: var(--ink);
+}
+ul.landing-list > li { font-size: 0.95rem; }
+.landing-links { margin-top: 1.75rem; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.landing-links a { color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+.landing-links a:hover { color: var(--accent); opacity: 1; }
+.landing-links .sep { color: var(--rule); margin: 0 0.9rem; }
+
 /* ── Inner pages ── */
 .page-title {
   font-size: clamp(2rem, 5.5vw, 2.8rem); font-weight: 400;
@@ -96,7 +105,7 @@ h2 {
   margin-top: 3rem; margin-bottom: 1.25rem;
   padding-bottom: 0.45rem; border-bottom: 1px solid var(--rule);
 }
-h2:first-of-type { margin-top: 0; }
+.page-title + h2, .page-lede + h2 { margin-top: 0; }
 h3 {
   font-size: 1.05rem; font-weight: 400; letter-spacing: 0.01em; font-style: italic;
   margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--ink);
@@ -110,9 +119,8 @@ ul.practice-list { list-style: none; padding-left: 0; margin-bottom: 0.25rem; }
 ul.practice-list > li {
   font-size: 0.93rem; font-weight: 400;
   padding: 0.6rem 0 0.6rem 1.2rem; position: relative;
-  border-bottom: 1px solid var(--rule); line-height: 1.7;
+  line-height: 1.7;
 }
-ul.practice-list > li:last-child { border-bottom: none; }
 ul.practice-list > li::before { content: '—'; position: absolute; left: 0; color: var(--ink-muted); }
 
 ul.sub-bullets { list-style: none; padding-left: 0.75rem; margin-top: 0.4rem; margin-bottom: 0.2rem; }
