@@ -132,7 +132,7 @@ ul.sub-bullets li::before {
   content: '*'; position: absolute; left: 0; color: var(--rule);
   font-size: 0.8rem; line-height: 1.8;
 }
-ul.practice-list strong {
+ul.practice-list strong, strong.label {
   font-weight: 400; font-size: 0.95rem; letter-spacing: 0.01em; color: var(--ink);
   text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.2em;
 }
